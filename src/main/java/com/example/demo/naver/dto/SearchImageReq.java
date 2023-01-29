@@ -9,14 +9,15 @@ import org.springframework.util.MultiValueMap;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchLocalReq {
+public class SearchImageReq {
 
     //제이슨에서 필요한 요청변수 다 적어줬음
 
     private String query="";
     private int display=1;
     private int start=1;
-    private String sort = "random";
+    private String sort = "sim";
+    private String filter = "all";
 
     public MultiValueMap<String,String> toMultiValueMap(){
         var map = new LinkedMultiValueMap<String, String>();
@@ -25,6 +26,7 @@ public class SearchLocalReq {
         map.add("display", String.valueOf(display));
         map.add("start", String.valueOf(start));
         map.add("sort", sort);
+        map.add("filter", filter);
 
         return map;
 
